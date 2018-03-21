@@ -1,0 +1,30 @@
+@import "helpers/_variables.scss";
+
+*{
+    margin: 0;
+}
+
+body{
+    background: $bgColor;
+    color: white;
+    .wrapper{
+        width: 80%;
+        margin: 0 auto;
+        nav{
+            background: red;
+            .logo{
+                display: inline-block;
+                font-size: 3vw; 
+            }
+            .searchBar{
+                display: inline-block;
+                .searchBar_btn{
+                    display: inline-block;
+                }
+            }
+            .favorite{
+                display: inline-block;
+            }
+        }
+    }
+}
