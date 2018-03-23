@@ -11,7 +11,7 @@ body{
     background: $bgColor;
     color: white;
     .wrapper{
-        width: 80%;
+        width: 70%;
         margin: 0 auto;
         padding: 10px;
         overflow: hidden;
@@ -19,48 +19,56 @@ body{
             width: 100%;
             overflow: hidden;
             position: relative;
-            padding: 15px 0;
+            padding: 50px 0;
             .logo{
                 float: left;
                 font-size: 3vw;
+                color: $yellow;
+                font-family: $primary-font;
+                span{
+                    color: $red;
+                }
             }
             .searchBar{
                 width: 60%;
                 position: absolute;
-                left: 50%;
+                left: 52%;
                 top: 50%;
                 transform: translate(-50%, -50%);
                 input{
                     width: 100%;
-                    padding: 10px;
-                    border-radius: 20px;
+                    padding: 15px;
+                    border-radius: 25px;
                 }
                 .searchBar_btn{
-                    height: 36.2px;
-                    width: 36.2px;
+                    height: 45px;
+                    width: 45px;
                     background: $green;
                     border-radius: 100%;
                     position: absolute;
                     right: -1px;
                     top: 50%;
                     transform: translateY(-50%);
-                    color: black;
                     cursor: pointer;
-                    i{
+                    .fa-search{
                         position: absolute;
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
-                        color: white;
-                        font-weight: bold;
+                        font-size: 20px;
                     }
                 }
             }
             .favorite{
                 position: absolute;
-                right: 0;
+                right: 100px;
                 top: 50%;
                 transform: translateY(-50%);
+                cursor: pointer;
+                .fa-heart{
+                    color: $red;
+                    font-size: 35px;
+                }
             }
         }
         .content{
@@ -68,10 +76,14 @@ body{
             .sideNav{
                 width: 10%;
                 float: left;
+                margin-top: 8%;
                 ul{
+                    padding-left: 20px;
                     li{
+                        font-family: $primary-font;
                         cursor: pointer;
-                        padding: 2px;
+                        padding: 4%;
+                        font-size: 0.8vw;
                         &:hover{
                             color: yellow;
                         }
@@ -82,13 +94,20 @@ body{
                 width: 90%;
                 overflow: hidden;
                 float: left;
+                .title{
+                    font-family: $primary-font;
+                    font-size: 2.4vw;
+                    padding-bottom: 2%;
+                    padding-left: 15px;
+                }
                 .gifContainer{
-                    width: calc(100% / 3);
+                    margin: 1%;
+                    width: calc(100% / 3 - 4%);
                     float: left;
                     background: rgb(7, 46, 131);
                     overflow: hidden;
-                    padding-top: 25%;
-                    border: 2px solid black;
+                    padding-top: 18%;
+                    // border: 2px solid black;
                     position: relative;
                     img{
                         top: 0;
@@ -102,3 +121,5 @@ body{
         }
     }
 }
+
+@import "_mediaqueries.scss";

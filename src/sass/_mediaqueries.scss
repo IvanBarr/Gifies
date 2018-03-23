@@ -1,0 +1,44 @@
+@media only screen and (max-width: 1400px){
+    body{
+        .wrapper{
+            width: 90%;
+            nav{
+                .logo{
+                    font-size: 4vw;
+                }
+                .searchBar{
+                    left: 50%;
+                }
+                .favorite{
+                    right: 80px;
+                }
+            }
+            .content{
+                .sideNav{
+                    ul{
+                        li{
+                            font-size: 1.2vw;
+                        }
+                    }
+                }
+                #gifWrapper{
+                    .title{
+                        font-size: 3vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    body{
+        .wrapper{
+            nav{
+                .favorite{
+                    right: 50px;
+                }
+            }
+        }
+    }
+}
