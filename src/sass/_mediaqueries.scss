@@ -31,7 +31,7 @@
     }
 }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1024px){
     body{
         .wrapper{
             nav{
@@ -39,6 +39,107 @@
                     right: 50px;
                 }
             }
+            .content{
+              .sideNav{
+                ul{
+                  padding-left: 0;
+                  list-style: none;
+                  li{
+                    font-size: 1.7vw;
+                  }
+                }
+              }
+            }
         }
     }
+}
+
+@media only screen and (max-width: 414px){
+  body{
+    .wrapper{
+      width: 100%;
+      nav{
+        padding: 15px;
+        .logo{
+          font-size: 7vw;
+        }
+        .searchBar{
+          display: none;
+        }
+        .search_btn{
+          color: $green;
+          float: right;
+          position: absolute;
+          right: 90px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: block;
+          .fa-search{
+            font-size: 6vw;
+          }
+        }
+        .favorite{
+          right: 55px;
+          .fa-heart{
+            font-size: 6vw;
+          }
+        }
+        .navMenu_btn{
+            position: absolute;
+            width: 30px;
+            height:30px;
+            overflow: hidden;
+            float: right;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            display: block;
+            // background: pink;
+            input{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 3;
+                cursor: pointer;
+            }
+            span{
+              height: 4px;
+              width: 100%;
+              background: white;
+              margin: 4px 0;
+              display: block;
+              transition: transform 0.3s ease-in-out, opacity 0.3s;
+            }
+        }
+        .navMenu_btn input:checked ~ span{
+          // background: green;
+        }
+        .navMenu_btn input:checked ~ span:nth-child(2){
+          transform: rotate(45deg) translate(7px, 7px);
+        }
+        .navMenu_btn input:checked ~ span:nth-child(3){
+          opacity: 0;
+        }
+        .navMenu_btn input:checked ~ span:nth-child(4){
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      }
+      .sticky{
+        width: 100%;
+      }
+      .content{
+        .sideNav{
+          display: none;
+        }
+        #gifWrapper{
+          width: 100%;
+          padding-top: 5%;
+          .title{
+            font-size: 5vw;
+          }
+        }
+      }
+    }
+  }
 }

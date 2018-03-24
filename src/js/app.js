@@ -1,4 +1,18 @@
 var title = document.getElementsByClassName('title')[0];
+var nav = document.getElementsByTagName('nav')[0];
+
+window.onscroll = function(){stickyNav()}
+
+
+function stickyNav(){
+  if(window.pageYOffset >= 50){
+    nav.classList.add('sticky');
+  }else{
+    nav.classList.remove('sticky');
+  }
+}
+
+
 var ourData;
 var api_key = 'http://api.giphy.com/v1/gifs/trending?&api_key=8wEih3Gu7pXaPfNAWqBYhON7T8UTUFz9&limit=20';
 var ourRequest = new XMLHttpRequest();
@@ -58,7 +72,7 @@ function pickCategory(event){
     ourRequest.onload = function(){
       ourData = JSON.parse(ourRequest.responseText);
       createGif(ourData);
-    }
+    };
     ourRequest.send();
   }
 }
