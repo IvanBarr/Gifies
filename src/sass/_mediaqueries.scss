@@ -130,7 +130,20 @@
       }
       .content{
         .sideNav{
-          display: none;
+          height: 0px;
+          overflow: hidden;
+          transition: all 0.3s ease-in-out;
+          z-index: 999;
+          background: $bgColor;
+          width: 100%;
+          top: 270px;
+          left: 0;
+          ul{
+            li{
+              font-size: 3vw;
+              display: inline-block;
+            }
+          }
         }
         #gifWrapper{
           width: 100%;
