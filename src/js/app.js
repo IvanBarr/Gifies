@@ -72,10 +72,14 @@ window.onscroll = function(){stickyNav();};
 function stickyNav(){
   if(window.pageYOffset >= 70){
     nav.classList.add('sticky');
-    sideNav.style.position = "absolute";
+    sideNav.style.position = 'fixed';
+    sideNav.style.top = '24px';
+    sideNav.childNodes[1].style.paddingTop = '20px';
   }else{
     nav.classList.remove('sticky');
-    sideNav.style.position = "";
+    sideNav.style.position = '';
+    sideNav.style.top = '';
+    sideNav.childNodes[1].style.paddingTop = '';
   }
 }
 
