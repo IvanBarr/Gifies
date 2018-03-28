@@ -1,7 +1,7 @@
 var title = document.getElementsByClassName('title')[0];
 
 var ourData;
-var api_key = 'http://api.giphy.com/v1/gifs/trending?&api_key=8wEih3Gu7pXaPfNAWqBYhON7T8UTUFz9&limit=20';
+var api_key = 'http://api.giphy.com/v1/gifs/trending?&api_key=8wEih3Gu7pXaPfNAWqBYhON7T8UTUFz9&limit=40';
 var ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', api_key);
 ourRequest.onload = function(){
@@ -38,43 +38,66 @@ function pickCategory(event){
     targetTextValue = target.innerText;
     pickedCategory = targetTextValue.toString();
     if(pickedCategory === 'Trending'){
-      api_key = 'http://api.giphy.com/v1/gifs/trending?&api_key=8wEih3Gu7pXaPfNAWqBYhON7T8UTUFz9&limit=20';
+      api_key = 'http://api.giphy.com/v1/gifs/trending?&api_key=8wEih3Gu7pXaPfNAWqBYhON7T8UTUFz9&limit=40';
     }else{
-      api_key = 'http://api.giphy.com/v1/gifs/search?q=' + pickedCategory + '&api_key=8wEih3Gu7pXaPfNAWqBYhON7T8UTUFz9&limit=20';
+      api_key = 'http://api.giphy.com/v1/gifs/search?q=' + pickedCategory + '&api_key=8wEih3Gu7pXaPfNAWqBYhON7T8UTUFz9&limit=40';
     }
     title.innerHTML = pickedCategory;
     deleteOldContent();
     updateApiKey();
   }
+}
 
-  function deleteOldContent(){
-    var gifContainers = gifWrapper.querySelectorAll('.gifContainer');
-    for(var x = 0; x < gifContainers.length; x++){
-      gifWrapper.removeChild(gifContainers[x]);
-    }
+function deleteOldContent(){
+  var gifContainers = gifWrapper.querySelectorAll('.gifContainer');
+  for(var x = 0; x < gifContainers.length; x++){
+    gifWrapper.removeChild(gifContainers[x]);
   }
+}
 
-  function updateApiKey(){
-    ourRequest.open('GET', api_key);
-    ourRequest.onload = function(){
-      ourData = JSON.parse(ourRequest.responseText);
-      createGif(ourData);
-    };
-    ourRequest.send();
-  }
+function updateApiKey(){
+  ourRequest.open('GET', api_key);
+  ourRequest.onload = function(){
+    ourData = JSON.parse(ourRequest.responseText);
+    createGif(ourData);
+  };
+  ourRequest.send();
+}
+
+
+var searchBtn = document.getElementsByClassName('searchBar_btn')[0];
+searchBtn.addEventListener('click', searchGifs);
+function searchGifs(){
+  var searchInput = document.getElementById('searchInput');
+  var searchInputValue = searchInput.value;
+  api_key = 'http://api.giphy.com/v1/gifs/search?q=' + searchInputValue + '&api_key=8wEih3Gu7pXaPfNAWqBYhON7T8UTUFz9&limit=40';
+  title.innerHTML = searchInputValue;
+  deleteOldContent();
+  updateApiKey();
+  searchInput.value = '';
 }
 
 
 var nav = document.getElementsByTagName('nav')[0];
 var sideNav = document.getElementsByClassName('sideNav')[0];
 window.onscroll = function(){stickyNav();};
+var mediaQueryMobile = window.matchMedia( "(max-width: 414px)" );
 
+
+// ADD MEDIA QUERIES TO THE SIDENAV POSITION
 function stickyNav(){
+  var screenWidth = window.innerwidth || document.documentElement.clientWidth;
   if(window.pageYOffset >= 70){
     nav.classList.add('sticky');
-    sideNav.style.position = 'fixed';
-    sideNav.style.top = '24px';
-    sideNav.childNodes[1].style.paddingTop = '20px';
+    if(screenWidth < 414){
+      sideNav.style.position = 'fixed';
+      sideNav.style.top = '23px';
+      sideNav.childNodes[1].style.paddingTop = '20px';
+    }else{
+      sideNav.style.position = '';
+      sideNav.style.top = '';
+      sideNav.childNodes[1].style.paddingTop = '';
+    }
   }else{
     nav.classList.remove('sticky');
     sideNav.style.position = '';
@@ -93,3 +116,29 @@ function dropDownMenu(){
     sideNav.style.height = '0px';
   }
 }
+
+
+// var screenWidth = window.innerwidth || document.documentElement.clientWidth;
+// // window.onload = function(){
+// //   if(screenWidth > 414){
+// //     sideNav.style.position = '';
+// //     sideNav.style.color = 'red';
+// //     sideNav.style.top = '';
+// //     sideNav.childNodes[1].style.paddingTop = '';
+// //   }else{
+// //     sideNav.style.color = '';
+// //   }
+// // }
+// //
+// // window.addEventListener('resize', function(){
+// //   var screenWidth = window.innerwidth || document.documentElement.clientWidth;
+// //   if(screenWidth > 414){
+// //     screenWidth = screenWidth;
+// //     sideNav.style.position = '';
+// //     sideNav.style.color = 'red';
+// //     sideNav.style.top = '';
+// //     sideNav.childNodes[1].style.paddingTop = '';
+// //   }else{
+// //     sideNav.style.color = '';
+// //   }
+// // })

@@ -27,6 +27,9 @@
                     }
                 }
             }
+            .sticky{
+              width: 90%;
+            }
         }
     }
 }
@@ -50,8 +53,44 @@
                 }
               }
             }
+            .sticky{
+              padding: 20px;
+            }
         }
     }
+}
+
+@media only screen and (max-width: 768px){
+  body{
+    .wrapper{
+      nav{
+        padding: 30px 0;
+        .logo{
+          font-size: 6vw;
+        }
+        .searchBar{
+          width: 50%;
+          left: 53%;
+          input{
+            padding: 10px;
+          }
+          .searchBar_btn{
+            height: 36px;
+            width: 36px;
+          }
+        }
+        .favorite{
+          right: 30px;
+          .fa-heart{
+            font-size: 30px;
+          }
+        }
+      }
+      .sticky{
+        padding: 15px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 414px){
