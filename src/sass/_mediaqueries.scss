@@ -99,11 +99,26 @@
       width: 100%;
       nav{
         padding: 15px;
+        overflow: visible;
         .logo{
           font-size: 7vw;
         }
         .searchBar{
-          display: none;
+          width: 0;
+          overflow: hidden;
+          top: 90px;
+          z-index: 999;
+          position: fixed;
+          left: 50%;
+          transition: width .3s;
+          // background: $bgColor;
+          // box-shadow: 0px 0px 76px 17px rgba(0,0,0,0.75);
+          border-radius: 25px;
+          .searchBar_btn{
+            right: 0;
+            width: 35.5px;
+            height: 35.5px;
+          }
         }
         .search_btn{
           color: $green;
@@ -113,6 +128,7 @@
           top: 50%;
           transform: translateY(-50%);
           display: block;
+          cursor: pointer;
           .fa-search{
             font-size: 6vw;
           }
@@ -186,7 +202,7 @@
         }
         #gifWrapper{
           width: 100%;
-          padding-top: 5%;
+          padding-top: 10%;
           .title{
             font-size: 5vw;
           }

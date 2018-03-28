@@ -77,6 +77,22 @@ function searchGifs(){
   searchInput.value = '';
 }
 
+var searchBtnMobile = document.getElementsByClassName('search_btn')[0];
+var searchBar = document.getElementsByClassName('searchBar')[0];
+searchBtnMobile.addEventListener('click', openSearchInputMobile);
+function openSearchInputMobile(){
+  if(searchBar.offsetWidth == '0'){
+    searchBar.style.width = '90%';
+    searchBar.style.boxShadow = '0px 0px 76px 20px rgba(0,0,0,0.75)';
+  }else{
+    searchBar.style.width = '0';
+    searchBar.style.boxShadow = '';
+  }
+
+}
+
+
+
 
 var nav = document.getElementsByTagName('nav')[0];
 var sideNav = document.getElementsByClassName('sideNav')[0];
@@ -116,6 +132,25 @@ function dropDownMenu(){
     sideNav.style.height = '0px';
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // var screenWidth = window.innerwidth || document.documentElement.clientWidth;
