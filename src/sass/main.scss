@@ -133,6 +133,22 @@ body{
                 }
             }
         }
+        footer{
+          .copyright{
+              width: 100%;
+              overflow: hidden;
+              p{
+                text-align: center;
+                padding: 25px;
+                font-family: $primary-font;
+                font-size: 12px;
+              }
+              a{
+                color: $red;
+                text-decoration: none;
+              }
+          }
+        }
     }
 }
 

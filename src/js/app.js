@@ -21,7 +21,7 @@ function createGif(data){
     gifContainer.className = 'gifContainer';
 
     var img = document.createElement('IMG');
-    img.src = data.data[i].images.preview_webp.url;
+    img.src = data.data[i].images.fixed_width_downsampled.url;
     gifContainer.appendChild(img);
     gifWrapper.appendChild(gifContainer);
   }
@@ -163,3 +163,10 @@ favoriteBtn.addEventListener('click', addToFavorite);
 function addToFavorite(){
   alert('Feature coming soon!');
 }
+
+// Copyright year
+var currentTime = new Date(),
+    year = currentTime.getFullYear(),
+    copyrightYear = document.getElementById('currentDate');
+
+    copyrightYear.appendChild(document.createTextNode(year));
