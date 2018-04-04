@@ -4,6 +4,17 @@ var ourData;
 var api_key = 'http://api.giphy.com/v1/gifs/trending?&api_key=8wEih3Gu7pXaPfNAWqBYhON7T8UTUFz9&limit=40';
 var ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', api_key);
+
+// AJAX ERROR HANDLING
+ourRequest.onreadystatechange = function(){
+  var OK = 200; // status 200 is a successful return
+  if(ourRequest.readyState === ourRequest.DONE){
+    if(ourRequest.status != OK){
+      console.log('There was a problem with the request'); // An error occured during the request
+    }
+  }
+}
+
 ourRequest.onload = function(){
   ourData = JSON.parse(ourRequest.responseText);
   title.innerHTML = 'Trending';
