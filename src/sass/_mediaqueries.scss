@@ -203,6 +203,9 @@
         #gifWrapper{
           width: 100%;
           padding-top: 10%;
+          overflow: hidden;
+          height: auto;
+          left: 0;
           .title{
             font-size: 5vw;
           }
