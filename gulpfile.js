@@ -10,7 +10,7 @@ var notify      = require('gulp-notify');
 var prefix      = require('gulp-autoprefixer');
 var imagemin    = require('gulp-imagemin');
 var jshint      = require('gulp-jshint');
-var pngquant    = require('imagemin-pngquant');
+// var pngquant    = require('imagemin-pngquant');
 var browserSync = require('browser-sync');
 
 
@@ -81,11 +81,11 @@ gulp.task('watch', function(){
   });
   gulp.watch(src.sass, ['sass']);
   gulp.watch(src.js, ['js']);
-  gulp.watch(src.img, ['img'])
+  // gulp.watch(src.img, ['img'])
   gulp.watch(build.html).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['watch', 'sass', 'js', 'img'])
+gulp.task('default', ['watch', 'sass', 'js'])
 
 
 
