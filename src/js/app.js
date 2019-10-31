@@ -13,7 +13,7 @@ ourRequest.onreadystatechange = function(){
       console.log('There was a problem with the request'); // An error occured during the request
     }
   }
-}
+};
 
 ourRequest.onload = function(){
   ourData = JSON.parse(ourRequest.responseText);
@@ -100,11 +100,11 @@ var searchBtnMobile = document.getElementsByClassName('search_btn')[0];
 var searchBar = document.getElementsByClassName('searchBar')[0];
 searchBtnMobile.addEventListener('click', openSearchInputMobile);
 function openSearchInputMobile(){
-  if(searchBar.offsetWidth == '0'){
-    searchBar.style.width = '90%';
+  if(searchBar.style.opacity == 0){
     searchBar.style.boxShadow = '0px 0px 76px 20px rgba(0,0,0,0.75)';
+    searchBar.style.opacity = 1;
   }else{
-    searchBar.style.width = '0';
+    searchBar.style.opacity = '';
     searchBar.style.boxShadow = '';
   }
 }
@@ -120,7 +120,6 @@ searchInput.addEventListener('keypress', function(e){
 window.addEventListener('resize', function(){
   var screenWidth = window.innerwidth || document.documentElement.clientWidth;
   if(screenWidth > 397){
-    searchBar.style.width = '';
     searchBar.style.boxShadow = '';
 
       sideNav.style.position = '';
